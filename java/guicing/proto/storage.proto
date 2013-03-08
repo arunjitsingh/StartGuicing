@@ -1,0 +1,18 @@
+syntax = "proto2";
+
+package guicing.proto;
+
+option java_package = "guicing.proto";
+option java_outer_classname = "StorageProto";
+
+// This will be used by the file store.
+message Store {
+  required int64 next_id = 1;
+  repeated Item item = 2;
+}
+
+// This will be used by the file store and the redis store.
+message Item {
+  required int64 id = 1;
+  optional bytes serialized_item = 2;
+}
